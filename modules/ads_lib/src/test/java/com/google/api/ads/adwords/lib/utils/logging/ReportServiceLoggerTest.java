@@ -81,7 +81,7 @@ public class ReportServiceLoggerTest {
 
     requestFactory = new NetHttpTransport().createRequestFactory();
     // Constructs the request headers.
-    rawRequestHeaders = new HashMap<>();
+    rawRequestHeaders = new HashMap<String, String>();
     // Adds headers that should be scrubbed.
     for (String scrubbedHeader : ReportServiceLogger.SCRUBBED_HEADERS) {
       rawRequestHeaders.put(scrubbedHeader, "foo" + scrubbedHeader);

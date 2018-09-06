@@ -14,7 +14,6 @@
 
 package com.google.api.ads.common.lib.conf;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -25,11 +24,14 @@ import com.google.api.ads.common.lib.conf.ConfigurationHelper.ConfigurationInfo;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.net.URL;
-import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -421,7 +423,9 @@ public class ConfigurationHelperTest {
    */
   private File createPropertiesFile(Map<String, String> properties) throws IOException {
     File file = tempFolder.newFile();
-    Writer fileWriter = Files.newBufferedWriter(file.toPath(), UTF_8);
+    Writer fileWriter = new BufferedWriter(new OutputStreamWriter(
+            new FileOutputStream(file.getName()), "utf-8"));
+//    Writer fileWriter = Files.newBufferedWriter(file.toPath(), UTF_8);
     for (Map.Entry<String, String> entry : properties.entrySet()) {
       fileWriter.write(String.format("%s=%s\n", entry.getKey(), entry.getValue()));
     }

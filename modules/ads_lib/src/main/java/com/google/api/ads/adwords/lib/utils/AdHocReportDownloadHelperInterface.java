@@ -14,7 +14,6 @@
 
 package com.google.api.ads.adwords.lib.utils;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.api.ads.adwords.lib.utils.DetailedReportDownloadResponseException.Builder;
 import com.google.api.ads.common.lib.utils.AdsUtility;
@@ -30,7 +29,7 @@ public interface AdHocReportDownloadHelperInterface {
   /**
    * The default Charset for report request and response contents.
    */
-  @VisibleForTesting Charset REPORT_CHARSET = UTF_8;
+  @VisibleForTesting Charset REPORT_CHARSET = Charset.forName( "UTF-8" );
 
   /**
    * Convenience method that is equivalent to

@@ -14,7 +14,6 @@
 
 package com.google.api.ads.common.lib.soap.axis;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.api.client.http.ByteArrayContent;
 import com.google.api.client.http.GenericUrl;
@@ -31,6 +30,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.zip.GZIPOutputStream;
@@ -123,9 +123,11 @@ public class HttpHandler extends BasicHandler implements HttpRequestInitializer 
 
     if (msgContext.isPropertyTrue(HTTPConstants.MC_GZIP_REQUEST)) {
       logger.debug("Compressing request");
-      try (GZIPOutputStream gzipOs = new GZIPOutputStream(bos, BUFFER_SIZE)) {
+      try {
+        GZIPOutputStream gzipOs = new GZIPOutputStream(bos, BUFFER_SIZE);
         requestMessage.writeTo(gzipOs);
       }
+      finally {}
     } else {
       logger.debug("Not compressing request");
       requestMessage.writeTo(bos);
@@ -209,12 +211,14 @@ public class HttpHandler extends BasicHandler implements HttpRequestInitializer 
           new AxisFault("HTTP", "(" + statusCode + ")" + statusMessage, null, null);
       axisFault.addFaultDetail(
           Constants.QNAME_FAULTDETAIL_HTTPERRORCODE, String.valueOf(statusCode));
-      try (InputStream stream = responseInputStream) {
+      try {
+        InputStream stream = responseInputStream;
         byte[] contentBytes = ByteStreams.toByteArray(stream);
         axisFault.setFaultDetailString(
             Messages.getMessage(
-                "return01", String.valueOf(statusCode), new String(contentBytes, UTF_8)));
+                "return01", String.valueOf(statusCode), new String(contentBytes, Charset.forName("UTF_8"))));
       }
+      finally{}
       throw axisFault;
     }
     // Response is an XML response. Do not consume and close the stream in this case, since that

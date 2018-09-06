@@ -140,7 +140,7 @@ public class LineItemPage  implements java.io.Serializable , Iterable<com.google
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201708.LineItem> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.LineItem>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.LineItem> emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201708.LineItem>asList(results).iterator();
     }

@@ -31,7 +31,6 @@ import com.google.common.collect.Sets;
 import com.google.inject.name.Named;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -161,7 +160,7 @@ public class ReportServiceLogger {
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
         try {
           content.writeTo(byteStream);
-          messageBuilder.append(byteStream.toString(StandardCharsets.UTF_8.name()));
+          messageBuilder.append(byteStream.toString("UTF-8"));
         } catch (IOException e) {
           messageBuilder.append("Unable to read request content due to exception: " + e);
         }

@@ -26,7 +26,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ConnectException;
-import java.nio.charset.StandardCharsets;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Deque;
@@ -43,8 +43,8 @@ public class MockHttpServer {
 
   private final HttpTransport httpTransport;
   
-  private final Deque<ActualResponse> actualResponses = new LinkedList<>();
-  private final Deque<MockResponse> mockResponses = new LinkedList<>();
+  private final Deque<ActualResponse> actualResponses = new LinkedList<ActualResponse>();
+  private final Deque<MockResponse> mockResponses = new LinkedList<MockResponse>();
 
   public MockHttpServer() {
     this.httpTransport =
@@ -99,7 +99,7 @@ public class MockHttpServer {
     }
   
     // Convert the (possibly inflated) request bytes to a string.
-    String requestBody = ByteSource.wrap(requestBytes).asCharSource(StandardCharsets.UTF_8).read();
+    String requestBody = ByteSource.wrap(requestBytes).asCharSource(Charset.forName("UTF-8")).read();
     actualResponse.setRequestBody(requestBody);
 
     if (mockResponse.isValidateUrlMatches() && !getServerUrl().equals(request.getUrl())) {
@@ -134,7 +134,7 @@ public class MockHttpServer {
   }
 
   public List<ActualResponse> getAllResponses() {
-    return new ArrayList<>(this.actualResponses);
+    return new ArrayList<ActualResponse>(this.actualResponses);
   }
   
   /**

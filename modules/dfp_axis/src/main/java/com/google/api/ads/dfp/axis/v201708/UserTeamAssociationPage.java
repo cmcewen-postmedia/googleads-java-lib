@@ -143,7 +143,7 @@ public class UserTeamAssociationPage  implements java.io.Serializable , Iterable
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201708.UserTeamAssociation> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.UserTeamAssociation>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.UserTeamAssociation> emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201708.UserTeamAssociation>asList(results).iterator();
     }

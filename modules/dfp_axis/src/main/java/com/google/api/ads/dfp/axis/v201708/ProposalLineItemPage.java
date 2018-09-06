@@ -143,7 +143,7 @@ public class ProposalLineItemPage  implements java.io.Serializable , Iterable<co
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201708.ProposalLineItem> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.ProposalLineItem>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.ProposalLineItem> emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201708.ProposalLineItem>asList(results).iterator();
     }

@@ -140,7 +140,7 @@ public class AdExclusionRulePage  implements java.io.Serializable , Iterable<com
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201708.AdExclusionRule> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.AdExclusionRule>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.AdExclusionRule> emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201708.AdExclusionRule>asList(results).iterator();
     }

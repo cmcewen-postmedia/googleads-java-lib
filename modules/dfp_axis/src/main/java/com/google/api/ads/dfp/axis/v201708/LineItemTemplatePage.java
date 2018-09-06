@@ -143,7 +143,7 @@ public class LineItemTemplatePage  implements java.io.Serializable , Iterable<co
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201708.LineItemTemplate> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.LineItemTemplate>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.LineItemTemplate> emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201708.LineItemTemplate>asList(results).iterator();
     }

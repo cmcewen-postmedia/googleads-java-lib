@@ -141,7 +141,7 @@ public class ReportingConfigurationTest {
             .skipReportSummary(true)
             .includeZeroImpressions(true)
             .useRawEnumValues(true)
-            .reportDownloadTimeout(60_000)
+            .reportDownloadTimeout(60000)
             .build();
     config.validate(null);
     assertTrue("Validation should succeed", true);

@@ -26,7 +26,7 @@ import com.google.common.io.Files;
 import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
-import java.nio.charset.StandardCharsets;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -83,7 +83,7 @@ public class CsvFilesTest {
   @Before
   public void setUp() throws Exception {
     csvStringFile = tempFolder.newFile();
-    Files.asCharSink(csvStringFile, StandardCharsets.UTF_8).write(csvString);
+    Files.asCharSink(csvStringFile, Charset.forName("UTF-8")).write(csvString);
     if (headerPresent) {
       dataList.remove(0);
     }
@@ -93,7 +93,7 @@ public class CsvFilesTest {
   public void testWriteCsv() throws IOException {
     File csvFile = tempFolder.newFile();
     CsvFiles.writeCsv(dataList, csvFile.getPath());
-    List<String> actualLines = Files.readLines(csvFile, StandardCharsets.UTF_8);
+    List<String> actualLines = Files.readLines(csvFile, Charset.forName("UTF-8"));
     assertEquals(dataList.size(), actualLines.size());
     Splitter splitter = Splitter.on(',').trimResults(CharMatcher.is('"'));
     for (int i = 0; i < dataList.size(); i++) {
@@ -158,7 +158,7 @@ public class CsvFilesTest {
 
   @Test
   public void testGetCsvDataArray_fromReader() throws IOException {
-    Reader reader = Files.newReader(csvStringFile, StandardCharsets.UTF_8);
+    Reader reader = Files.newReader(csvStringFile, Charset.forName("UTF-8"));
     List<String[]> actualDataArray = CsvFiles.getCsvDataArray(reader, headerPresent);
     assertEquals(dataList.size(), actualDataArray.size());
     for (int i = 0; i < actualDataArray.size(); i++) {

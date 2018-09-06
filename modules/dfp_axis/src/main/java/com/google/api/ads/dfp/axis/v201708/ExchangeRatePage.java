@@ -140,7 +140,7 @@ public class ExchangeRatePage  implements java.io.Serializable , Iterable<com.go
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201708.ExchangeRate> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.ExchangeRate>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.ExchangeRate> emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201708.ExchangeRate>asList(results).iterator();
     }

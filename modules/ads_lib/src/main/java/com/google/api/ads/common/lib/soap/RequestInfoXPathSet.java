@@ -24,7 +24,6 @@ import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPHeader;
 import javax.xml.soap.SOAPMessage;
@@ -65,12 +64,16 @@ public class RequestInfoXPathSet {
     if (soapMessage == null) {
       return builder;
     }
-    try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
-      soapMessage.writeTo(outputStream);
-      builder.withPayload(outputStream.toString(StandardCharsets.UTF_8.name()));
-    } catch (SOAPException | IOException e) {
+    try {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        soapMessage.writeTo(outputStream);
+      builder.withPayload(outputStream.toString("UTF_8"));
+    } catch (SOAPException e) {
       builder.withPayload("Unable to read request content due to exception: " + e);
+    } catch (IOException e) {
+        builder.withPayload("Unable to read request content due to exception: " + e);
     }
+
 
     try {
       SOAPHeader soapHeader = soapMessage.getSOAPHeader();

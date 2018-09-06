@@ -36,7 +36,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
-import java.nio.charset.StandardCharsets;
+import java.nio.charset.Charset;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -84,7 +84,7 @@ public abstract class BatchJobHelperTest<
   public void testDownloadBatchJobMutateResponse() throws BatchJobException, IOException {
     File tempFile = tempFolder.newFile();
     OutputStream responseOutputStream = new FileOutputStream(tempFile);
-    Streams.write(getResponseString(), responseOutputStream, StandardCharsets.UTF_8);
+    Streams.write(getResponseString(), responseOutputStream, Charset.forName("UTF-8"));
     ResponseT downloadResponse =
         batchJobHelper.downloadBatchJobMutateResponse(tempFile.toURI().toURL().toString());
     assertDownloadResponse(downloadResponse);
@@ -101,7 +101,7 @@ public abstract class BatchJobHelperTest<
         + "</mutateResponse>", getVersion());
     File tempFile = tempFolder.newFile();
     OutputStream responseOutputStream = new FileOutputStream(tempFile);
-    Streams.write(noResultsResponse, responseOutputStream, StandardCharsets.UTF_8);
+    Streams.write(noResultsResponse, responseOutputStream, Charset.forName("UTF-8"));
     ResponseT downloadResponse =
         batchJobHelper.downloadBatchJobMutateResponse(tempFile.toURI().toURL().toString());
     assertNotNull("Download response is null", downloadResponse);

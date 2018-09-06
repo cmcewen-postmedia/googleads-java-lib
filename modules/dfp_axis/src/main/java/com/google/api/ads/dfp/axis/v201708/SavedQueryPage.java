@@ -140,7 +140,7 @@ public class SavedQueryPage  implements java.io.Serializable , Iterable<com.goog
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201708.SavedQuery> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.SavedQuery>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.SavedQuery> emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201708.SavedQuery>asList(results).iterator();
     }

@@ -143,7 +143,7 @@ public class ProductPackageItemPage  implements java.io.Serializable , Iterable<
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201708.ProductPackageItem> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.ProductPackageItem>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.ProductPackageItem> emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201708.ProductPackageItem>asList(results).iterator();
     }

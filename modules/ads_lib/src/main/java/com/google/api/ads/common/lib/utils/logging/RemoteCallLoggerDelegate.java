@@ -56,7 +56,7 @@ public class RemoteCallLoggerDelegate {
   static final String DETAILS_RESPONSE_TEMPLATE = String.format("{} response:%n{}");
 
   /** When logging the one-line summary for a failed request, limit the error to this length. */
-  private static final int MAX_SUMMARY_ERROR_LENGTH = 16_000;
+  private static final int MAX_SUMMARY_ERROR_LENGTH = 16000;
 
   /** Trailing string to use for errors that exceed {@link #MAX_SUMMARY_ERROR_LENGTH}. */
   private static final String ELLIPSIS = "...";

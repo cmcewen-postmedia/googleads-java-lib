@@ -16,7 +16,6 @@ package com.google.api.ads.common.lib.soap;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
-import java.util.Objects;
 
 /**
  * Represents a single call to the SOAP client.
@@ -63,9 +62,9 @@ public class SoapCall<T> {
     if (obj instanceof SoapCall) {
       SoapCall<?> other = (SoapCall<?>) obj;
 
-      return Objects.equals(soapClient, other.soapClient)
-          && Objects.equals(soapClientMethod, other.soapClientMethod)
-          && Objects.deepEquals(soapArgs, other.soapArgs);
+      return soapClient.equals( other.soapClient )
+          && soapClientMethod.equals( other.soapClientMethod )
+          && Arrays.equals(soapArgs, other.soapArgs);
     }
     return false;
   }
@@ -73,6 +72,15 @@ public class SoapCall<T> {
   /** @see java.lang.Object#hashCode() */
   @Override
   public int hashCode() {
-    return Objects.hash(soapClientMethod, soapClient, Arrays.hashCode(soapArgs));
+    int hash = 0;
+    if ( soapClientMethod != null ) {
+        hash = hash + soapClientMethod.hashCode();
+    }
+    if ( soapClient != null ) {
+        hash = hash + soapClient.hashCode();
+    }
+    hash = hash + Arrays.hashCode( soapArgs );
+    return hash;
+    
   }
 }

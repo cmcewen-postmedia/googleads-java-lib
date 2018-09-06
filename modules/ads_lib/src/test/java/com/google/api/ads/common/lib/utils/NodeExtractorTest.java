@@ -19,7 +19,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import com.google.common.collect.Lists;
-import java.nio.charset.StandardCharsets;
+
+import java.nio.charset.Charset;
 import java.util.Collections;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.junit.Rule;
@@ -59,7 +60,7 @@ public class NodeExtractorTest {
     Document document =
         DocumentBuilderFactory.newInstance()
             .newDocumentBuilder()
-            .parse(Streams.wrapString(xml, StandardCharsets.UTF_8));
+            .parse(Streams.wrapString(xml, Charset.forName("UTF-8")));
     Node node = nodeExtractor.extractNode(document, Lists.newArrayList("Header", "requestId"));
     assertEquals(
         "Given an xpath in the XML, should return its node",
@@ -73,7 +74,7 @@ public class NodeExtractorTest {
     Document document =
         DocumentBuilderFactory.newInstance()
             .newDocumentBuilder()
-            .parse(Streams.wrapString(xml, StandardCharsets.UTF_8));
+            .parse(Streams.wrapString(xml, Charset.forName("UTF-8")));
     Node node = nodeExtractor.extractNode(document, Lists.newArrayList("Header", "requestId"));
     assertEquals(
         "Given an xpath in the XML, should return its node",
@@ -101,7 +102,7 @@ public class NodeExtractorTest {
     Document document =
         documentBuilderFactory
             .newDocumentBuilder()
-            .parse(Streams.wrapString(xml, StandardCharsets.UTF_8));
+            .parse(Streams.wrapString(xml, Charset.forName("UTF-8")));
     Node node =
         nodeExtractor.extractNode(
             document, Lists.newArrayList("Envelope", "Header", "ResponseHeader", "requestId"));
@@ -118,7 +119,7 @@ public class NodeExtractorTest {
     Document document =
         DocumentBuilderFactory.newInstance()
             .newDocumentBuilder()
-            .parse(Streams.wrapString(xml, StandardCharsets.UTF_8));
+            .parse(Streams.wrapString(xml, Charset.forName("UTF-8")));
     Node node = nodeExtractor.extractNode(document, Lists.newArrayList("Foo"));
     assertNull("Given an xpath not in the XML, should return null", node);
   }
@@ -129,7 +130,7 @@ public class NodeExtractorTest {
     Document document =
         DocumentBuilderFactory.newInstance()
             .newDocumentBuilder()
-            .parse(Streams.wrapString(xml, StandardCharsets.UTF_8));
+            .parse(Streams.wrapString(xml, Charset.forName("UTF-8")));
     Node node = nodeExtractor.extractNode(document, Collections.<String>emptyList());
     assertNull("Given an empty xpath elements list, should return null", node);
   }

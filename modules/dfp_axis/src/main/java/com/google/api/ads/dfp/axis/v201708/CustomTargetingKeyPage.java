@@ -143,7 +143,7 @@ public class CustomTargetingKeyPage  implements java.io.Serializable , Iterable<
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201708.CustomTargetingKey> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.CustomTargetingKey>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.CustomTargetingKey> emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201708.CustomTargetingKey>asList(results).iterator();
     }

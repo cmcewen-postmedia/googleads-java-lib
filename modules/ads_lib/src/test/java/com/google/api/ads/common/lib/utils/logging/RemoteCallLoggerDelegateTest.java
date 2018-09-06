@@ -65,8 +65,8 @@ public class RemoteCallLoggerDelegateTest {
     ResponseInfo responseInfo =
         new ResponseInfo.Builder()
             .withRequestId("abc123def456")
-            .withOperationsCount(1_234L)
-            .withResponseTimeMillis(543_210L)
+            .withOperationsCount(1234L)
+            .withResponseTimeMillis(543210L)
             .withPayload(responseXml)
             .build();
     remoteCallReturn =

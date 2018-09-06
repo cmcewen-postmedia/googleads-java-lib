@@ -140,7 +140,7 @@ public class ActivityGroupPage  implements java.io.Serializable , Iterable<com.g
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201708.ActivityGroup> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.ActivityGroup>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.ActivityGroup> emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201708.ActivityGroup>asList(results).iterator();
     }

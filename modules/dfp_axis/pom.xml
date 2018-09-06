@@ -114,11 +114,6 @@
     <!-- Ads client library dependencies -->
     <dependency>
       <groupId>com.google.api-ads</groupId>
-      <artifactId>ads-lib</artifactId>
-      <version>3.9.1-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.api-ads</groupId>
       <artifactId>ads-lib-axis</artifactId>
       <version>3.9.1-SNAPSHOT</version>
     </dependency>
@@ -129,45 +124,7 @@
     <dependency>
       <groupId>com.google.api-ads</groupId>
       <artifactId>ads-lib</artifactId>
-      <scope>test</scope>
-      <classifier>tests</classifier>
       <version>3.9.1-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.http-client</groupId>
-      <artifactId>google-http-client-jackson2</artifactId>
-      <version>1.22.0</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>2.52.0</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>jetty</groupId>
-      <artifactId>jetty</artifactId>
-      <version>5.1.10</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-all</artifactId>
-      <version>1.9.5</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>xmlunit</groupId>
-      <artifactId>xmlunit</artifactId>
-      <version>1.6</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
 

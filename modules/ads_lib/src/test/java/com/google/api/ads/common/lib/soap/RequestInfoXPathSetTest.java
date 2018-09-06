@@ -31,7 +31,6 @@ import com.google.api.ads.common.lib.utils.NodeExtractor;
 import com.google.common.collect.Iterables;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPHeader;
@@ -117,7 +116,7 @@ public class RequestInfoXPathSetTest {
               @Override
               public Void answer(InvocationOnMock invocation) throws Throwable {
                 OutputStream outputStream = (OutputStream) invocation.getArguments()[0];
-                outputStream.write(payload.getBytes(StandardCharsets.UTF_8));
+                outputStream.write(payload.getBytes("UTF-8"));
                 return null;
               }
             })

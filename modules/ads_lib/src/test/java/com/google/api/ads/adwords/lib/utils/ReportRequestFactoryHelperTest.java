@@ -77,11 +77,11 @@ public class ReportRequestFactoryHelperTest {
     Collection<Object[]> parameters = new ArrayList<Object[]>();
     List<Boolean> booleanValues = Arrays.<Boolean>asList(true, false, null);
     List<String> versions = Arrays.<String>asList("v201702", "v201705", "v201708", "v201710");
-    List<Integer> timeouts = Arrays.<Integer>asList(5_000_000, null);
+    List<Integer> timeouts = Arrays.<Integer>asList(5000000, null);
 
     // Create a reporting configuration for all combinations of attribute values from the lists
     // above.
-    List<ReportingConfiguration> reportingConfigs = new ArrayList<>();
+    List<ReportingConfiguration> reportingConfigs = new ArrayList<ReportingConfiguration>();
     for (Boolean isSkipReportHeader : booleanValues) {
       for (Boolean isSkipColumnHeader : booleanValues) {
         for (Boolean isSkipReportSummary : booleanValues) {

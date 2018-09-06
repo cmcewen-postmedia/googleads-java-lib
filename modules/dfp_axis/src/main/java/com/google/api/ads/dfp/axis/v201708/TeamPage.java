@@ -140,7 +140,7 @@ public class TeamPage  implements java.io.Serializable , Iterable<com.google.api
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201708.Team> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.Team>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.Team> emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201708.Team>asList(results).iterator();
     }

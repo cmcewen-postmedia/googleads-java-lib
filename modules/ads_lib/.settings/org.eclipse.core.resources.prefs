@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/java/com/google/api/ads/adwords/lib/conf/props=UTF-8
+encoding//src/main/java/com/google/api/ads/common/lib/conf/props=UTF-8
+encoding//src/main/java/com/google/api/ads/dfp/lib/conf/props=UTF-8
+encoding//src/test/java=UTF-8
+encoding//src/test/java/com/google/api/ads/adwords/lib/soap/testing=UTF-8
+encoding//src/test/java/com/google/api/ads/adwords/lib/utils/testing=UTF-8
+encoding//src/test/java/com/google/api/ads/common/lib/auth/props=UTF-8
+encoding//src/test/java/com/google/api/ads/common/lib/auth/testing=UTF-8
+encoding//src/test/java/com/google/api/ads/common/lib/conf/props=UTF-8
+encoding//src/test/java/com/google/api/ads/dfp/lib/soap/testing=UTF-8
+encoding/<project>=UTF-8

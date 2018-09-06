@@ -14,7 +14,6 @@
 
 package com.google.api.ads.adwords.lib.utils;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -36,6 +35,7 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import java.io.IOException;
 import java.net.URI;
+import java.nio.charset.Charset;
 import java.util.List;
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -102,7 +102,7 @@ public class BatchJobUploaderTest {
       }
     };
     when(uploadBodyProvider.getHttpContent(request, true, true))
-        .thenReturn(new ByteArrayContent(null, "foo".getBytes(UTF_8)));
+        .thenReturn(new ByteArrayContent(null, "foo".getBytes(Charset.forName("UTF_8"))));
     MockHttpTransport transport = new MockHttpTransport.Builder()
         .setLowLevelHttpRequest(lowLevelHttpRequest).build();
     uploader = new BatchJobUploader(adWordsSession, transport, batchJobLogger);
@@ -127,7 +127,7 @@ public class BatchJobUploaderTest {
       }
     };
     when(uploadBodyProvider.getHttpContent(request, true, true))
-        .thenReturn(new ByteArrayContent(null, "foo".getBytes(UTF_8)));
+        .thenReturn(new ByteArrayContent(null, "foo".getBytes(Charset.forName("UTF_8"))));
     MockHttpTransport transport = new MockHttpTransport.Builder()
         .setLowLevelHttpRequest(lowLevelHttpRequest).build();
     uploader = new BatchJobUploader(adWordsSession, transport, batchJobLogger);
@@ -144,7 +144,7 @@ public class BatchJobUploaderTest {
         new BatchJobUploadStatus(10, URI.create(mockHttpServer.getServerUrl()));
     String uploadRequestBody = "<mutate>testUpload</mutate>";
     when(uploadBodyProvider.getHttpContent(request, false, true))
-        .thenReturn(new ByteArrayContent(null, uploadRequestBody.getBytes(UTF_8)));
+        .thenReturn(new ByteArrayContent(null, uploadRequestBody.getBytes(Charset.forName("UTF_8"))));
     mockHttpServer.setMockResponse(new MockResponse("testUploadResponse"));
 
     // Invoked the incremental upload method.
@@ -164,7 +164,7 @@ public class BatchJobUploaderTest {
     // Check the BatchJobUploadStatus.
     BatchJobUploadStatus expectedStatus =
         new BatchJobUploadStatus(
-            status.getTotalContentLength() + expectedBody.getBytes(UTF_8).length,
+            status.getTotalContentLength() + expectedBody.getBytes(Charset.forName("UTF_8")).length,
             URI.create(mockHttpServer.getServerUrl()));
     BatchJobUploadStatus actualStatus = response.getBatchJobUploadStatus();
     assertEquals(
@@ -183,7 +183,7 @@ public class BatchJobUploaderTest {
         new BatchJobUploadStatus(10, URI.create(mockHttpServer.getServerUrl()));
     String uploadRequestBody = "<mutate>testUpload</mutate>";
     when(uploadBodyProvider.getHttpContent(request, false, false))
-        .thenReturn(new ByteArrayContent(null, uploadRequestBody.getBytes(UTF_8)));
+        .thenReturn(new ByteArrayContent(null, uploadRequestBody.getBytes(Charset.forName("UTF_8"))));
     mockHttpServer.setMockResponse(new MockResponse("testUploadResponse"));
 
     // Invoked the incremental upload method.
@@ -203,7 +203,7 @@ public class BatchJobUploaderTest {
     // Check the BatchJobUploadStatus.
     BatchJobUploadStatus expectedStatus =
         new BatchJobUploadStatus(
-            status.getTotalContentLength() + expectedBody.getBytes(UTF_8).length,
+            status.getTotalContentLength() + expectedBody.getBytes(Charset.forName("UTF_8")).length,
             URI.create(mockHttpServer.getServerUrl()));
     BatchJobUploadStatus actualStatus = response.getBatchJobUploadStatus();
     assertEquals(
@@ -222,7 +222,7 @@ public class BatchJobUploaderTest {
         new BatchJobUploadStatus(0, URI.create(mockHttpServer.getServerUrl()));
     String uploadRequestBody = "testUpload";
     when(uploadBodyProvider.getHttpContent(request, true, true))
-        .thenReturn(new ByteArrayContent(null, uploadRequestBody.getBytes(UTF_8)));
+        .thenReturn(new ByteArrayContent(null, uploadRequestBody.getBytes(Charset.forName("UTF_8"))));
     List<MockResponse> expectedResponses =
         Lists.newArrayList(new MockResponse("ignore"), new MockResponse("testUploadResponse"));
     mockHttpServer.setMockResponses(expectedResponses);
@@ -250,7 +250,7 @@ public class BatchJobUploaderTest {
     // Check the BatchJobUploadStatus.
     BatchJobUploadStatus expectedStatus =
         new BatchJobUploadStatus(
-            uploadRequestBody.getBytes(UTF_8).length, URI.create(mockHttpServer.getServerUrl()));
+            uploadRequestBody.getBytes(Charset.forName("UTF_8")).length, URI.create(mockHttpServer.getServerUrl()));
     BatchJobUploadStatus actualStatus = response.getBatchJobUploadStatus();
     assertEquals(
         "Status total content length is incorrect",
@@ -268,7 +268,7 @@ public class BatchJobUploaderTest {
         new BatchJobUploadStatus(10, URI.create(mockHttpServer.getServerUrl()));
     String uploadRequestBody = "<mutate>testUpload</mutate>";
     when(uploadBodyProvider.getHttpContent(request, false, true))
-        .thenReturn(new ByteArrayContent(null, uploadRequestBody.getBytes(UTF_8)));
+        .thenReturn(new ByteArrayContent(null, uploadRequestBody.getBytes(Charset.forName("UTF_8"))));
     mockHttpServer.setMockResponse(new MockResponse("testUploadResponse"));
 
     String expectedBody = "testUpload</mutate>";

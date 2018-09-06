@@ -143,7 +143,7 @@ public class SuggestedAdUnitPage  implements java.io.Serializable , Iterable<com
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201708.SuggestedAdUnit> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.SuggestedAdUnit>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.SuggestedAdUnit> emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201708.SuggestedAdUnit>asList(results).iterator();
     }

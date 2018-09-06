@@ -14,7 +14,6 @@
 
 package com.google.api.ads.common.lib.testing;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -28,6 +27,7 @@ import com.google.api.client.http.HttpResponseException;
 import com.google.common.collect.Lists;
 import java.io.IOException;
 import java.net.ConnectException;
+import java.nio.charset.Charset;
 import java.util.List;
 import org.junit.Rule;
 import org.junit.Test;
@@ -52,7 +52,7 @@ public class MockHttpServerTest {
             .getHttpTransport()
             .createRequestFactory()
             .buildGetRequest(new GenericUrl(mockHttpServer.getServerUrl()));
-    request.setContent(new ByteArrayContent("text", "test content".getBytes(UTF_8)));
+    request.setContent(new ByteArrayContent("text", "test content".getBytes(Charset.forName("UTF-8"))));
     thrown.expect(HttpResponseException.class);
     thrown.expectMessage("No mock response");
     request.execute();
@@ -70,7 +70,7 @@ public class MockHttpServerTest {
             .createRequestFactory()
             .buildGetRequest(
                 new GenericUrl("http://www.example.com/does_not_match_mock_http_server_url"));
-    request.setContent(new ByteArrayContent("text", "test content".getBytes(UTF_8)));
+    request.setContent(new ByteArrayContent("text", "test content".getBytes(Charset.forName("UTF-8"))));
     mockHttpServer.setMockResponse(new MockResponse("test response"));
     thrown.expect(ConnectException.class);
     request.execute();
@@ -89,7 +89,7 @@ public class MockHttpServerTest {
             .createRequestFactory()
             .buildGetRequest(
                 new GenericUrl("http://www.example.com/does_not_match_mock_http_server_url"));
-    request.setContent(new ByteArrayContent("text", "test content".getBytes(UTF_8)));
+    request.setContent(new ByteArrayContent("text", "test content".getBytes(Charset.forName("UTF-8"))));
     HttpHeaders headers = new HttpHeaders();
     headers.set("one", "1");
     headers.set("two", "2");
@@ -115,7 +115,7 @@ public class MockHttpServerTest {
             .createRequestFactory()
             .buildGetRequest(new GenericUrl(mockHttpServer.getServerUrl()));
     String requestContent = "test request";
-    request.setContent(new ByteArrayContent("text", requestContent.getBytes(UTF_8)));
+    request.setContent(new ByteArrayContent("text", requestContent.getBytes(Charset.forName("UTF-8"))));
 
     List<MockResponse> expectedResponses =
         Lists.newArrayList(

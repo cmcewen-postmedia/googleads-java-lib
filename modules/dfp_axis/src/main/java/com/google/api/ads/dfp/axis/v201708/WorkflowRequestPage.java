@@ -140,7 +140,7 @@ public class WorkflowRequestPage  implements java.io.Serializable , Iterable<com
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201708.WorkflowRequest> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.WorkflowRequest>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201708.WorkflowRequest> emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201708.WorkflowRequest>asList(results).iterator();
     }

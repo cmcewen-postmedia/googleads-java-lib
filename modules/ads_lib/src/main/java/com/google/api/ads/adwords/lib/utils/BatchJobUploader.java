@@ -14,7 +14,6 @@
 
 package com.google.api.ads.adwords.lib.utils;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.api.ads.adwords.lib.client.AdWordsSession;
 import com.google.api.ads.adwords.lib.utils.logging.BatchJobLogger;
@@ -36,6 +35,7 @@ import com.google.inject.Inject;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URI;
+import java.nio.charset.Charset;
 
 /**
  * Utility for uploading operations to a BatchJob and downloading results from
@@ -131,7 +131,7 @@ public class BatchJobUploader {
           requestFactory.buildPutRequest(
               new GenericUrl(effectiveStatus.getResumableUploadUri()), content);
 
-      requestXml = Streams.readAll(content.getInputStream(), UTF_8);
+      requestXml = Streams.readAll(content.getInputStream(), Charset.forName( "UTF_8" ) );
       content.getInputStream().reset();
 
       HttpResponse response = httpRequest.execute();
@@ -208,20 +208,20 @@ public class BatchJobUploader {
       return content;
     }
 
-    String serializedRequest = Streams.readAll(content.getInputStream(), UTF_8);
+    String serializedRequest = Streams.readAll(content.getInputStream(), Charset.forName("UTF_8"));
 
     serializedRequest = trimStartEndElements(serializedRequest, isFirstRequest, isLastRequest);
 
     // The request is part of a set of incremental uploads, so pad to the required content
     // length. This is not necessary if all operations for the job are being uploaded in a
     // single request.
-    int numBytes = serializedRequest.getBytes(UTF_8).length;
+    int numBytes = serializedRequest.getBytes(Charset.forName("UTF_8")).length;
     int remainder = numBytes % REQUIRED_CONTENT_LENGTH_INCREMENT;
     if (remainder > 0) {
       int pad = REQUIRED_CONTENT_LENGTH_INCREMENT - remainder;
       serializedRequest = Strings.padEnd(serializedRequest, numBytes + pad, ' ');
     }
-    return new ByteArrayContent(content.getType(), serializedRequest.getBytes(UTF_8));
+    return new ByteArrayContent(content.getType(), serializedRequest.getBytes(Charset.forName("UTF_8")));
   }
 
   /**

@@ -28,7 +28,7 @@ import com.google.api.ads.common.lib.conf.AdsApiConfiguration;
 import com.google.api.ads.common.lib.utils.NodeExtractor;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPHeader;
@@ -101,7 +101,7 @@ public class ResponseInfoXPathSetTest {
               @Override
               public Void answer(InvocationOnMock invocation) throws Throwable {
                 OutputStream outputStream = (OutputStream) invocation.getArguments()[0];
-                outputStream.write(payload.getBytes(StandardCharsets.UTF_8));
+                outputStream.write(payload.getBytes(Charset.forName("UTF-8")));
                 return null;
               }
             })

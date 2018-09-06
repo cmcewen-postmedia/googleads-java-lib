@@ -14,7 +14,6 @@
 
 package com.google.api.ads.adwords.lib.utils.logging;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertEquals;
@@ -36,6 +35,7 @@ import com.google.common.io.CharSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -86,7 +86,7 @@ public class BatchJobLoggerTest {
   @Test
   public void testLogUpload() throws IOException {
     String contentsString = "some contents";
-    InputStream responseContent = CharSource.wrap(contentsString).asByteSource(UTF_8).openStream();
+    InputStream responseContent = CharSource.wrap(contentsString).asByteSource(Charset.forName( "UTF-8" )).openStream();
     BatchJobUploadResponse response =
         new BatchJobUploadResponse(
             responseContent, statusCode, statusMessage, contentsString.length(), URI.create(url));
