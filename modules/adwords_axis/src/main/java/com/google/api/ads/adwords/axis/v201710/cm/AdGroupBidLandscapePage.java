@@ -95,7 +95,7 @@ public class AdGroupBidLandscapePage  extends com.google.api.ads.adwords.axis.v2
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201710.cm.AdGroupBidLandscape> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.AdGroupBidLandscape>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.AdGroupBidLandscape>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201710.cm.AdGroupBidLandscape>asList(entries).iterator();
     }

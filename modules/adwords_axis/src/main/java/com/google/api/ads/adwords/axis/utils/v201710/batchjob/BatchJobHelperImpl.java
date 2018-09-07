@@ -95,7 +95,7 @@ class BatchJobHelperImpl
               com.google.api.ads.adwords.axis.v201710.cm.MutateResult.class,
               resultQName);
     } catch (Exception e) {
-      batchJobLogger.logDownload(downloadUrl, null, e);
+      // batchJobLogger.logDownload(downloadUrl, null, e);
       throw new BatchJobException(
           "Failed to download batch job mutate response from URL: " + downloadUrl, e);
     }
@@ -117,7 +117,7 @@ class BatchJobHelperImpl
     }
     response.setMutateResults(mutateResults.toArray(new MutateResult[mutateResults.size()]));
 
-    batchJobLogger.logDownload(downloadUrl, response, null);
+    // batchJobLogger.logDownload(downloadUrl, response, null);
     return response;
   }
 

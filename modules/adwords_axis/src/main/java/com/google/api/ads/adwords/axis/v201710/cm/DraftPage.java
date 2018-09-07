@@ -93,7 +93,7 @@ public class DraftPage  extends com.google.api.ads.adwords.axis.v201710.cm.NullS
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201710.cm.Draft> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.Draft>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.Draft>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201710.cm.Draft>asList(entries).iterator();
     }

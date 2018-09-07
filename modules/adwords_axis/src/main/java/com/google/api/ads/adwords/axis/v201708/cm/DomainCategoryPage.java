@@ -94,7 +94,7 @@ public class DomainCategoryPage  extends com.google.api.ads.adwords.axis.v201708
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201708.cm.DomainCategory> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.DomainCategory>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.DomainCategory>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201708.cm.DomainCategory>asList(entries).iterator();
     }

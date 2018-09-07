@@ -107,12 +107,7 @@ public class AdWordsAxisHeaderHandler implements
       soapClientHandler.setRequestTimeout(stub, adsLibConfiguration.getSoapRequestTimeout());
 
       authorizationHeaderHandler.setAuthorization(soapClient, adWordsSession);
-    } catch (InstantiationException
-        | IllegalAccessException
-        | ServiceException
-        | ClassNotFoundException
-        | InvocationTargetException
-        | NoSuchMethodException e) {
+    } catch (Exception e) {
       throw new ServiceException(
           "Unexpected exception setting headers for: " + adWordsServiceDescriptor, e);
     }

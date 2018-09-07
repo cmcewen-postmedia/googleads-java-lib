@@ -91,7 +91,7 @@ public class BatchJobPage  extends com.google.api.ads.adwords.axis.v201708.cm.Pa
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201708.cm.BatchJob> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.BatchJob>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.BatchJob>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201708.cm.BatchJob>asList(entries).iterator();
     }

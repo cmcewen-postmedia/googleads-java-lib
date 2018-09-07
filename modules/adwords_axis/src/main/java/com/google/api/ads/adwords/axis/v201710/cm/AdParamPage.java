@@ -114,7 +114,7 @@ public class AdParamPage  implements java.io.Serializable , Iterable<com.google.
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201710.cm.AdParam> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.AdParam>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.AdParam>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201710.cm.AdParam>asList(entries).iterator();
     }

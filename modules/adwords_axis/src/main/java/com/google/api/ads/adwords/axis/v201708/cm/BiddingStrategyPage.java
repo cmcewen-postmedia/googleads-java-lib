@@ -93,7 +93,7 @@ public class BiddingStrategyPage  extends com.google.api.ads.adwords.axis.v20170
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201708.cm.SharedBiddingStrategy> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.SharedBiddingStrategy>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.SharedBiddingStrategy>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201708.cm.SharedBiddingStrategy>asList(entries).iterator();
     }

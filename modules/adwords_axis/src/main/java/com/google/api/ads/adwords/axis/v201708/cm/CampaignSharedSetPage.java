@@ -93,7 +93,7 @@ public class CampaignSharedSetPage  extends com.google.api.ads.adwords.axis.v201
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201708.cm.CampaignSharedSet> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.CampaignSharedSet>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.CampaignSharedSet>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201708.cm.CampaignSharedSet>asList(entries).iterator();
     }

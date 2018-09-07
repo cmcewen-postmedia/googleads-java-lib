@@ -94,7 +94,7 @@ public class CampaignPage  extends com.google.api.ads.adwords.axis.v201708.cm.Pa
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201708.cm.Campaign> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.Campaign>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.Campaign>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201708.cm.Campaign>asList(entries).iterator();
     }

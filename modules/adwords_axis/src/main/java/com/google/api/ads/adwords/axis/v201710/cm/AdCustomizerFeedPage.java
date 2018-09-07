@@ -91,7 +91,7 @@ public class AdCustomizerFeedPage  extends com.google.api.ads.adwords.axis.v2017
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201710.cm.AdCustomizerFeed> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.AdCustomizerFeed>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.AdCustomizerFeed>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201710.cm.AdCustomizerFeed>asList(entries).iterator();
     }

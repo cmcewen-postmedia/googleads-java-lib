@@ -93,7 +93,7 @@ public class SharedCriterionPage  extends com.google.api.ads.adwords.axis.v20170
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201708.cm.SharedCriterion> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.SharedCriterion>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.SharedCriterion>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201708.cm.SharedCriterion>asList(entries).iterator();
     }

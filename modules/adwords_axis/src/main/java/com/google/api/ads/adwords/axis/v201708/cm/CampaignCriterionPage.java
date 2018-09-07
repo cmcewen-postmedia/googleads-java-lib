@@ -93,7 +93,7 @@ public class CampaignCriterionPage  extends com.google.api.ads.adwords.axis.v201
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201708.cm.CampaignCriterion> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.CampaignCriterion>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.CampaignCriterion>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201708.cm.CampaignCriterion>asList(entries).iterator();
     }

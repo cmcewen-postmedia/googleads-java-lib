@@ -93,7 +93,7 @@ public class BudgetPage  extends com.google.api.ads.adwords.axis.v201710.cm.Page
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201710.cm.Budget> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.Budget>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.Budget>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201710.cm.Budget>asList(entries).iterator();
     }

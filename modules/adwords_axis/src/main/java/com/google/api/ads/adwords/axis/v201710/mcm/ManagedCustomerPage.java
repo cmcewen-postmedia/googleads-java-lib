@@ -129,7 +129,7 @@ public class ManagedCustomerPage  extends com.google.api.ads.adwords.axis.v20171
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201710.mcm.ManagedCustomer> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.mcm.ManagedCustomer>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.mcm.ManagedCustomer>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201710.mcm.ManagedCustomer>asList(entries).iterator();
     }

@@ -64,7 +64,7 @@ class BatchJobHelperImpl
               .deserialize(new StreamSource(new URL(downloadUrl).openStream()))
               .getMutateResults();
     } catch (IOException e) {
-      batchJobLogger.logDownload(downloadUrl, null, e);
+//      batchJobLogger.logDownload(downloadUrl, null, e);
       throw new BatchJobException(
           "Failed to download batch job mutate response from URL: " + downloadUrl, e);
     }

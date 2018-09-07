@@ -94,7 +94,7 @@ public class LabelPage  extends com.google.api.ads.adwords.axis.v201710.cm.NoSta
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201710.cm.Label> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.Label>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.Label>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201710.cm.Label>asList(entries).iterator();
     }

@@ -94,7 +94,7 @@ public class SharedSetPage  extends com.google.api.ads.adwords.axis.v201708.cm.N
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201708.cm.SharedSet> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.SharedSet>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.SharedSet>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201708.cm.SharedSet>asList(entries).iterator();
     }

@@ -94,7 +94,7 @@ public class CustomerFeedPage  extends com.google.api.ads.adwords.axis.v201710.c
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201710.cm.CustomerFeed> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.CustomerFeed>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.CustomerFeed>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201710.cm.CustomerFeed>asList(entries).iterator();
     }

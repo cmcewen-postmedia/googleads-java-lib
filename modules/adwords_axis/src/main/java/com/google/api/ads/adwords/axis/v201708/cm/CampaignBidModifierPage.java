@@ -92,7 +92,7 @@ public class CampaignBidModifierPage  extends com.google.api.ads.adwords.axis.v2
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201708.cm.CampaignBidModifier> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.CampaignBidModifier>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.CampaignBidModifier>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201708.cm.CampaignBidModifier>asList(entries).iterator();
     }

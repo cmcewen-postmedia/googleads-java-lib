@@ -95,7 +95,7 @@ public class ConversionTrackerPage  extends com.google.api.ads.adwords.axis.v201
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201710.cm.ConversionTracker> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.ConversionTracker>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201710.cm.ConversionTracker>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201710.cm.ConversionTracker>asList(entries).iterator();
     }

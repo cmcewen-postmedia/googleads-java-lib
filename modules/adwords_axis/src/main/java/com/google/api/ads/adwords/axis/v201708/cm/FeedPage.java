@@ -92,7 +92,7 @@ public class FeedPage  extends com.google.api.ads.adwords.axis.v201708.cm.NullSt
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201708.cm.Feed> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.Feed>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201708.cm.Feed>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201708.cm.Feed>asList(entries).iterator();
     }

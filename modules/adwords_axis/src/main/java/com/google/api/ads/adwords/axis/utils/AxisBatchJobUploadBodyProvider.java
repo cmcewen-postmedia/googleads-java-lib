@@ -14,7 +14,7 @@
 
 package com.google.api.ads.adwords.axis.utils;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
+import java.nio.charset.Charset;
 
 import com.google.api.ads.adwords.lib.utils.BatchJobException;
 import com.google.api.ads.adwords.lib.utils.BatchJobMutateRequestInterface;
@@ -24,6 +24,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSortedSet;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.SortedSet;
 import javax.xml.namespace.QName;
 import org.apache.axis.encoding.SerializationContext;
@@ -73,7 +74,9 @@ public class AxisBatchJobUploadBodyProvider implements BatchJobUploadBodyProvide
     AxisSerializer serializer = new AxisSerializer();
     serializer.serialize(request, context);
 
-    return new ByteArrayContent("application/xml", writer.toString().getBytes(UTF_8));
+    ByteArrayContent bac = null;
+
+    return new ByteArrayContent("application/xml", writer.toString().getBytes(Charset.forName( "UTF-8" )));
   }
 
 }
