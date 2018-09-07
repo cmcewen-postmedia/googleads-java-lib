@@ -25,6 +25,8 @@ public final class ArgumentNames {
 
   public static final String BASE_CAMPAIGN_ID = "--baseCampaignId";
 
+  public static final String BRIDGE_MAP_VERSION_ID = "--bridgeMapVersionId";
+
   public static final String BUDGET_ID = "--budgetId";
 
   public static final String BUSINESS_ACCOUNT_IDENTIFIER = "--businessAccountIdentifier";
@@ -40,6 +42,8 @@ public final class ArgumentNames {
   public static final String CONVERSION_TIME = "--conversionTime";
 
   public static final String CONVERSION_VALUE = "--conversionValue";
+
+  public static final String CPC_BID_MICRO_AMOUNT = "--cpcBidMicroAmount";
 
   public static final String CREATE_DEFAULT_PARTITION = "--createDefaultPartition";
 
@@ -67,8 +71,16 @@ public final class ArgumentNames {
 
   public static final String MERCHANT_ID = "--merchantId";
 
+  public static final String PARTNER_ID = "--partnerId";
+
   public static final String SERVICE_LINK_ID = "--serviceLinkId";
 
   public static final String TRIAL_ID = "--trialId";
+
+  public static final String UPLOAD_TIME = "--uploadTime";
+
+  public static final String USER_LIST_ID = "--userListId";
+
+  public static final String OFFLINE_DATA_UPLOAD_TYPE = "--offlineDataUploadType";
 
 }
