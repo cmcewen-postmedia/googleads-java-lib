@@ -22,7 +22,7 @@
   <parent>
     <groupId>com.google.api-ads</groupId>
     <artifactId>client-libs-parent</artifactId>
-    <version>3.9.1-SNAPSHOT</version>
+    <version>3.12.0</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
 
@@ -30,55 +30,13 @@
 
   <groupId>com.google.api-ads</groupId>
   <artifactId>adwords-appengine</artifactId>
-  <version>3.9.1-SNAPSHOT</version>
+  <version>3.12.0</version>
 
   <packaging>jar</packaging>
   <name>AdWords AppEngine components</name>
-  <description>AdWords specific AppEngine components.</description>
+  <description>AdWords-specific AppEngine components.</description>
 
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.17</version>
-        <executions>
-          <execution>
-            <id>default-test</id>
-            <goals>
-              <goal>test</goal>
-            </goals>
-            <configuration>
-              <excludes>
-                <exclude>**/AdWordsJaxWsSoapCompressionIntegrationTest.java</exclude>
-                <exclude>**/AdWordsJaxWsSoapIntegrationTest.java</exclude>
-                <exclude>**/AdWordsJaxWsSoapTimeoutIntegrationTest.java</exclude>
-                <exclude>**/UserAgentCombinerTest.java</exclude>
-              </excludes>
-            </configuration>
-          </execution>
-          <execution>
-            <!-- Tests that modify configuration settings that impact
-                 singletons. Each of these tests must be executed in its own
-                 JVM (reuseForks=false, forkCount=1). -->
-            <id>test-fork</id>
-            <goals>
-              <goal>test</goal>
-            </goals>
-            <configuration>
-              <reuseForks>false</reuseForks>
-              <forkCount>1</forkCount>
-              <includes>
-                <include>**/AdWordsJaxWsSoapCompressionIntegrationTest.java</include>
-                <include>**/AdWordsJaxWsSoapIntegrationTest.java</include>
-                <include>**/AdWordsJaxWsSoapTimeoutIntegrationTest.java</include>
-                <include>**/UserAgentCombinerTest.java</include>
-              </includes>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
     <resources>
       <resource>
         <targetPath>com/google/api/ads/adwords/jaxws/conf/props</targetPath>
@@ -113,12 +71,12 @@
     <dependency>
       <groupId>com.google.api-ads</groupId>
       <artifactId>ads-lib-appengine</artifactId>
-      <version>3.9.1-SNAPSHOT</version>
+      <version>3.12.0</version>
     </dependency>
     <dependency>
       <groupId>com.google.api-ads</groupId>
       <artifactId>ads-lib</artifactId>
-      <version>3.9.1-SNAPSHOT</version>
+      <version>3.12.0</version>
     </dependency>
 
     <!-- Third party dependencies -->
@@ -129,7 +87,7 @@
       <artifactId>ads-lib</artifactId>
       <scope>test</scope>
       <classifier>tests</classifier>
-      <version>3.9.1-SNAPSHOT</version>
+      <version>3.12.0</version>
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
@@ -140,7 +98,7 @@
     <dependency>
       <groupId>com.google.http-client</groupId>
       <artifactId>google-http-client-test</artifactId>
-      <version>1.22.0</version>
+      <version>1.23.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>

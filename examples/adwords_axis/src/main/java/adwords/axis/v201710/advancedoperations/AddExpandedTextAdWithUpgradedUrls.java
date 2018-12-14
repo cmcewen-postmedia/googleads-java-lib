@@ -14,12 +14,16 @@
 
 package adwords.axis.v201710.advancedoperations;
 
+import static com.google.api.ads.common.lib.utils.Builder.DEFAULT_CONFIGURATION_FILENAME;
+
 import com.beust.jcommander.Parameter;
 import com.google.api.ads.adwords.axis.factory.AdWordsServices;
 import com.google.api.ads.adwords.axis.v201710.cm.AdGroupAd;
 import com.google.api.ads.adwords.axis.v201710.cm.AdGroupAdOperation;
 import com.google.api.ads.adwords.axis.v201710.cm.AdGroupAdServiceInterface;
 import com.google.api.ads.adwords.axis.v201710.cm.AdGroupAdStatus;
+import com.google.api.ads.adwords.axis.v201710.cm.ApiError;
+import com.google.api.ads.adwords.axis.v201710.cm.ApiException;
 import com.google.api.ads.adwords.axis.v201710.cm.CustomParameter;
 import com.google.api.ads.adwords.axis.v201710.cm.CustomParameters;
 import com.google.api.ads.adwords.axis.v201710.cm.ExpandedTextAd;
@@ -29,8 +33,12 @@ import com.google.api.ads.adwords.lib.factory.AdWordsServicesInterface;
 import com.google.api.ads.adwords.lib.utils.examples.ArgumentNames;
 import com.google.api.ads.common.lib.auth.OfflineCredentials;
 import com.google.api.ads.common.lib.auth.OfflineCredentials.Api;
+import com.google.api.ads.common.lib.conf.ConfigurationLoadException;
+import com.google.api.ads.common.lib.exception.OAuthException;
+import com.google.api.ads.common.lib.exception.ValidationException;
 import com.google.api.ads.common.lib.utils.examples.CodeSampleParams;
 import com.google.api.client.auth.oauth2.Credential;
+import java.rmi.RemoteException;
 
 /**
  * This example adds an expanded text ad that uses advanced features of upgraded URLs.
@@ -45,19 +53,37 @@ public class AddExpandedTextAdWithUpgradedUrls {
     private Long adGroupId;
   }
 
-  public static void main(String[] args) throws Exception {
-    // Generate a refreshable OAuth2 credential.
-    Credential oAuth2Credential = new OfflineCredentials.Builder()
-        .forApi(Api.ADWORDS)
-        .fromFile()
-        .build()
-        .generateCredential();
+  public static void main(String[] args) {
+    AdWordsSession session;
+    try {
+      // Generate a refreshable OAuth2 credential.
+      Credential oAuth2Credential =
+          new OfflineCredentials.Builder()
+              .forApi(Api.ADWORDS)
+              .fromFile()
+              .build()
+              .generateCredential();
 
-    // Construct an AdWordsSession.
-    AdWordsSession session = new AdWordsSession.Builder()
-        .fromFile()
-        .withOAuth2Credential(oAuth2Credential)
-        .build();
+      // Construct an AdWordsSession.
+      session =
+          new AdWordsSession.Builder().fromFile().withOAuth2Credential(oAuth2Credential).build();
+    } catch (ConfigurationLoadException cle) {
+      System.err.printf(
+          "Failed to load configuration from the %s file. Exception: %s%n",
+          DEFAULT_CONFIGURATION_FILENAME, cle);
+      return;
+    } catch (ValidationException ve) {
+      System.err.printf(
+          "Invalid configuration in the %s file. Exception: %s%n",
+          DEFAULT_CONFIGURATION_FILENAME, ve);
+      return;
+    } catch (OAuthException oe) {
+      System.err.printf(
+          "Failed to create OAuth credentials. Check OAuth settings in the %s file. "
+              + "Exception: %s%n",
+          DEFAULT_CONFIGURATION_FILENAME, oe);
+      return;
+    }
 
     AdWordsServicesInterface adWordsServices = AdWordsServices.getInstance();
 
@@ -68,12 +94,41 @@ public class AddExpandedTextAdWithUpgradedUrls {
       params.adGroupId = Long.parseLong("INSERT_AD_GROUP_ID_HERE");
     }
 
-    runExample(adWordsServices, session, params.adGroupId);
+    try {
+      runExample(adWordsServices, session, params.adGroupId);
+    } catch (ApiException apiException) {
+      // ApiException is the base class for most exceptions thrown by an API request. Instances
+      // of this exception have a message and a collection of ApiErrors that indicate the
+      // type and underlying cause of the exception. Every exception object in the adwords.axis
+      // packages will return a meaningful value from toString
+      //
+      // ApiException extends RemoteException, so this catch block must appear before the
+      // catch block for RemoteException.
+      System.err.println("Request failed due to ApiException. Underlying ApiErrors:");
+      if (apiException.getErrors() != null) {
+        int i = 0;
+        for (ApiError apiError : apiException.getErrors()) {
+          System.err.printf("  Error %d: %s%n", i++, apiError);
+        }
+      }
+    } catch (RemoteException re) {
+      System.err.printf(
+          "Request failed unexpectedly due to RemoteException: %s%n", re);
+    }
   }
 
+  /**
+   * Runs the example.
+   *
+   * @param adWordsServices the services factory.
+   * @param session the session.
+   * @param adGroupId the ID of the ad group where the ad will be created.
+   * @throws ApiException if the API request failed with one or more service errors.
+   * @throws RemoteException if the API request failed due to other errors.
+   */
   public static void runExample(
       AdWordsServicesInterface adWordsServices, AdWordsSession session, long adGroupId)
-      throws Exception {
+      throws RemoteException {
     // Get the AdGroupAdService.
     AdGroupAdServiceInterface adGroupAdService =
         adWordsServices.get(session, AdGroupAdServiceInterface.class);
@@ -83,13 +138,13 @@ public class AddExpandedTextAdWithUpgradedUrls {
     expandedTextAd.setHeadlinePart1("Luxury Cruise to Mars");
     expandedTextAd.setHeadlinePart2("Visit the Red Planet in style.");
     expandedTextAd.setDescription("Low-gravity fun for everyone!");
-    
+
     // Specify a tracking url for 3rd party tracking provider. You may
     // specify one at customer, campaign, ad group, ad, criterion or
     // feed item levels.
     expandedTextAd.setTrackingUrlTemplate(
         "http://tracker.example.com/?season={_season}&promocode={_promocode}&u={lpurl}");
-    
+
     // Since your tracking url has two custom parameters, provide their
     // values too. This can be provided at campaign, ad group, ad, criterion
     // or feed item levels.
@@ -105,12 +160,12 @@ public class AddExpandedTextAdWithUpgradedUrls {
     trackingUrlParameters.setParameters(
         new CustomParameter[] {seasonParameter, promoCodeParameter});
     expandedTextAd.setUrlCustomParameters(trackingUrlParameters);
-    
+
     // Specify a list of final urls. This field cannot be set if url field is
     // set. This may be specified at ad, criterion, and feed item levels.
     expandedTextAd.setFinalUrls(new String[] {"http://www.example.com/cruise/space/",
         "http://www.example.com/locations/mars/"});
-    
+
     // Specify a list of final mobile urls. This field cannot be set if url field is
     // set or finalUrls is not set. This may be specified at ad, criterion, and feed
     // item levels.

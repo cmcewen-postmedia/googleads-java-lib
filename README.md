@@ -1,8 +1,8 @@
-Google Ads API Java Client Library
-==================================
+Google Ads APIs Client Library for Java
+=======================================
 
-This project hosts the Java client library for the various SOAP-Based Ads APIs
-(AdWords and DFP) at Google.
+This project hosts the client library for Java for the various SOAP-based ads
+APIs (AdWords and DFP) at Google.
 
 ## Features
 
@@ -25,7 +25,7 @@ For API and client library updates and news, please follow our
 [Google+ Ads Developers page](https://plus.google.com/+GoogleAdsDevelopers/posts)
 and our [Google Ads Developers blog](http://googleadsdeveloper.blogspot.com/).
 
-### Support forum
+## Support forum
 
 If you have questions about the client library or the APIs, you can ask them on
 our forums:
@@ -86,7 +86,7 @@ are in the package `com.google.api.ads.adwords.{version}`.
         download a file like ``adwords-axis-maven-and-examples-v.vv.vv.tar.gz``
         and extract its contents to a directory.
 
-        Import the eclipse project by going to File > Import, then General >
+        Import the Eclipse project by going to File > Import, then General >
         Existing projects into workspace and selecting the extracted folder.
 
     *   **If using Maven from the command line**
@@ -129,7 +129,7 @@ are in the package `com.google.api.ads.adwords.{version}`.
     *   **If using Maven with Eclipse**
 
         Navigate in your project to any example (e.g.,
-        `src/main/java/adwords/axis/v201710/basicoperations/GetCampaigns.java`)
+        `src/main/java/adwords/axis/v201802/basicoperations/GetCampaigns.java`)
         and run the example.
 
     *   **If using Maven from the command line**
@@ -142,13 +142,13 @@ are in the package `com.google.api.ads.adwords.{version}`.
         particular example, use ``-Dexec.args="--help"``.
 
         ```
-        $ mvn -X exec:java -Dexec.mainClass="adwords.axis.v201710.basicoperations.GetAdGroups" -Dexec.args="--campaignId YOUR_CAMPAIGN_ID"
+        $ mvn -X exec:java -Dexec.mainClass="adwords.axis.v201802.basicoperations.GetAdGroups" -Dexec.args="--campaignId YOUR_CAMPAIGN_ID"
         ```
 
     *   **If using jars**
 
         Navigate in your project to any example (e.g.,
-        `src/adwords/axis/v201710/basicoperations/GetCampaigns.java`)
+        `src/adwords/axis/v201802/basicoperations/GetCampaigns.java`)
         and run the example.
 
 ## Basic usage
@@ -158,7 +158,7 @@ to all products and frameworks.
 
 ```java
 // Contains the data classes and service classes.
-import com.google.api.ads.adwords.axis.v201710.*;
+import com.google.api.ads.adwords.axis.v201802.*;
 
 import com.google.api.ads.adwords.lib.client.AdWordsSession;
 import com.google.api.ads.adwords.lib.axis.factory.AdWordsServices;
@@ -258,7 +258,8 @@ for their proxy.
     https.proxyUser      Optional username for proxy authentication    someone
     https.proxyPassword  Optional proxy server password                secret
 
-These properties can be set with java args in your eclipse run configuration:
+These properties can be set with JVM arguments in your Eclipse run
+configuration:
 
     -Dhttps.proxyHost=web-proxy -Dhttps.proxyPort=8080 -Dhttps.proxyUser=someone
     -Dhttps.proxyPassword=secret ...
@@ -270,6 +271,21 @@ If necessary, set this up in code by doing the following:
     System.setProperty("https.proxyUser", "someone");
     System.setProperty("https.proxyPassword", "secret");
 
+## Extensions
+
+*   The [AdWords API RateLimiter](https://github.com/googleads/googleads-java-lib/tree/master/extensions/adwords_rate_limiter)
+    contains a reference implementation for proper handling of rate limits,
+    as described in the [Rate Limits guide](https://developers.google.com/adwords/api/docs/guides/rate-limits).
+
+## Applications
+
+*   The [Keyword Optimizer application](https://github.com/googleads/keyword-optimizer)
+    is an open-source tool that uses the Google Ads APIs Client Library for Java
+    to find additional sets of keywords for AdWords.
+*   The [AwReporting application](https://github.com/googleads/aw-reporting) is
+    an open-source application that uses the Google Ads APIs Client Library for
+    Java to download reports from multiple AdWords accounts and store the report
+    contents in a database.
 
 ## Where do I submit bug reports, feature requests and patches?
 

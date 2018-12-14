@@ -14,7 +14,6 @@
 
 package com.google.api.ads.adwords.jaxws.utils;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.api.ads.adwords.lib.utils.BatchJobException;
 import com.google.api.ads.adwords.lib.utils.BatchJobMutateRequestInterface;
@@ -22,6 +21,9 @@ import com.google.api.ads.adwords.lib.utils.BatchJobUploadBodyProvider;
 import com.google.api.ads.common.lib.soap.jaxb.JaxBSerializer;
 import com.google.api.client.http.ByteArrayContent;
 import com.google.common.base.Preconditions;
+
+import java.io.UnsupportedEncodingException;
+
 import javax.xml.namespace.QName;
 
 /**
@@ -52,6 +54,13 @@ public class JaxWsBatchJobUploadBodyProvider<RequestT extends BatchJobMutateRequ
 
     String serializedRequest = serializer.serialize((RequestT) request, false);
 
-    return new ByteArrayContent("application/xml", serializedRequest.getBytes(UTF_8));
+    ByteArrayContent bac = null;
+    try {
+        bac = new ByteArrayContent("application/xml", serializedRequest.getBytes("UTF-8"));
+    } catch ( UnsupportedEncodingException e ) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    return bac;
   }
 }
