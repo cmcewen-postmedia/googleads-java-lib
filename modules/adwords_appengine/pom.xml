@@ -37,48 +37,6 @@
   <description>AdWords-specific AppEngine components.</description>
 
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.17</version>
-        <executions>
-          <execution>
-            <id>default-test</id>
-            <goals>
-              <goal>test</goal>
-            </goals>
-            <configuration>
-              <excludes>
-                <exclude>**/AdWordsJaxWsSoapCompressionIntegrationTest.java</exclude>
-                <exclude>**/AdWordsJaxWsSoapIntegrationTest.java</exclude>
-                <exclude>**/AdWordsJaxWsSoapTimeoutIntegrationTest.java</exclude>
-                <exclude>**/UserAgentCombinerTest.java</exclude>
-              </excludes>
-            </configuration>
-          </execution>
-          <execution>
-            <!-- Tests that modify configuration settings that impact
-                 singletons. Each of these tests must be executed in its own
-                 JVM (reuseForks=false, forkCount=1). -->
-            <id>test-fork</id>
-            <goals>
-              <goal>test</goal>
-            </goals>
-            <configuration>
-              <reuseForks>false</reuseForks>
-              <forkCount>1</forkCount>
-              <includes>
-                <include>**/AdWordsJaxWsSoapCompressionIntegrationTest.java</include>
-                <include>**/AdWordsJaxWsSoapIntegrationTest.java</include>
-                <include>**/AdWordsJaxWsSoapTimeoutIntegrationTest.java</include>
-                <include>**/UserAgentCombinerTest.java</include>
-              </includes>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
     <resources>
       <resource>
         <targetPath>com/google/api/ads/adwords/jaxws/conf/props</targetPath>

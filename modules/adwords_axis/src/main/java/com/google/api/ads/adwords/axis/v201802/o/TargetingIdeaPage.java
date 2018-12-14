@@ -115,7 +115,7 @@ public class TargetingIdeaPage  implements java.io.Serializable , Iterable<com.g
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201802.o.TargetingIdea> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.o.TargetingIdea>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.o.TargetingIdea>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201802.o.TargetingIdea>asList(entries).iterator();
     }

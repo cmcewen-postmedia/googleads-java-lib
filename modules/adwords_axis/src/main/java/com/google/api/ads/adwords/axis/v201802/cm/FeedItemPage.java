@@ -93,7 +93,7 @@ public class FeedItemPage  extends com.google.api.ads.adwords.axis.v201802.cm.Nu
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201802.cm.FeedItem> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.FeedItem>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.FeedItem>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201802.cm.FeedItem>asList(entries).iterator();
     }

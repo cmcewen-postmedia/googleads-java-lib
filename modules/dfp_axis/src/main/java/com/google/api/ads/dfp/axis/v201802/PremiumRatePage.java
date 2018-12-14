@@ -140,7 +140,7 @@ public class PremiumRatePage  implements java.io.Serializable , Iterable<com.goo
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201802.PremiumRate> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.PremiumRate>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.PremiumRate>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201802.PremiumRate>asList(results).iterator();
     }

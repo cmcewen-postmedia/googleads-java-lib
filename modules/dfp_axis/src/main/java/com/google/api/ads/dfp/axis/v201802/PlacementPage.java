@@ -140,7 +140,7 @@ public class PlacementPage  implements java.io.Serializable , Iterable<com.googl
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201802.Placement> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.Placement>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.Placement>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201802.Placement>asList(results).iterator();
     }

@@ -92,7 +92,7 @@ public class FeedMappingPage  extends com.google.api.ads.adwords.axis.v201802.cm
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201802.cm.FeedMapping> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.FeedMapping>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.FeedMapping>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201802.cm.FeedMapping>asList(entries).iterator();
     }

@@ -140,7 +140,7 @@ public class CreativePage  implements java.io.Serializable , Iterable<com.google
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201802.Creative> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.Creative>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.Creative>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201802.Creative>asList(results).iterator();
     }

@@ -94,7 +94,7 @@ public class CustomerExtensionSettingPage  extends com.google.api.ads.adwords.ax
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201802.cm.CustomerExtensionSetting> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.CustomerExtensionSetting>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.CustomerExtensionSetting>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201802.cm.CustomerExtensionSetting>asList(entries).iterator();
     }

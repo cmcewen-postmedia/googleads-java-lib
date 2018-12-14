@@ -114,7 +114,7 @@ public class MarketplaceCommentPage  implements java.io.Serializable , Iterable<
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201802.MarketplaceComment> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.MarketplaceComment>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.MarketplaceComment>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201802.MarketplaceComment>asList(results).iterator();
     }

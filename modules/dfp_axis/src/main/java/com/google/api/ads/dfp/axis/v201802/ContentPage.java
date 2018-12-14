@@ -140,7 +140,7 @@ public class ContentPage  implements java.io.Serializable , Iterable<com.google.
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201802.Content> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.Content>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.Content>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201802.Content>asList(results).iterator();
     }

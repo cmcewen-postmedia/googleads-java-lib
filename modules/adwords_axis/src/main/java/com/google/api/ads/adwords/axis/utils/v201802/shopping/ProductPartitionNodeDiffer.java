@@ -16,7 +16,7 @@ package com.google.api.ads.adwords.axis.utils.v201802.shopping;
 
 import com.google.api.ads.adwords.axis.v201802.cm.ProductDimension;
 import java.util.Comparator;
-import java.util.Objects;
+//import java.util.Objects;
 
 
 /**
@@ -28,6 +28,22 @@ class ProductPartitionNodeDiffer {
     // Static utility class - do not instantiate.
   }
 
+  private static boolean isObjectEqual( Object o1, Object o2 )
+  {
+      if ( o1 == null && o2 == null )
+      {
+          return true;
+      }
+      else if ( o1 == null )
+      {
+          return false;
+      }
+      else
+      {
+          return o1.equals( o2 );
+      }
+  }
+  
   /**
    * Returns the {@link NodeDifference} between the original node and the new node.
    *
@@ -55,14 +71,14 @@ class ProductPartitionNodeDiffer {
       // Both nodes are non-excluded units - the only possible differences
       // left are from the bid, tracking URL template, or custom parameters.
       nodeDifference = NodeDifference.NONE;
-      if (!Objects.equals(originalNode.getBid(), newNode.getBid())) {
+      if (!isObjectEqual(originalNode.getBid(), newNode.getBid())) {
         nodeDifference = NodeDifference.BIDDABLE_UNIT_CHANGE;
       }
-      if (!Objects.equals(
+      if (!isObjectEqual(
           originalNode.getTrackingUrlTemplate(), newNode.getTrackingUrlTemplate())) {
         nodeDifference = NodeDifference.BIDDABLE_UNIT_CHANGE;
       }
-      if (!Objects.equals(originalNode.getCustomParameters(), newNode.getCustomParameters())) {
+      if (!isObjectEqual(originalNode.getCustomParameters(), newNode.getCustomParameters())) {
         nodeDifference = NodeDifference.BIDDABLE_UNIT_CHANGE;
       }
     } else {

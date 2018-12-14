@@ -140,7 +140,7 @@ public class BaseRatePage  implements java.io.Serializable , Iterable<com.google
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201802.BaseRate> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.BaseRate>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.BaseRate>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201802.BaseRate>asList(results).iterator();
     }

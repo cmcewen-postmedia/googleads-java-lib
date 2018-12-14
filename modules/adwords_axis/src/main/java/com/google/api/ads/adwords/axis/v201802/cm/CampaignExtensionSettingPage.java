@@ -94,7 +94,7 @@ public class CampaignExtensionSettingPage  extends com.google.api.ads.adwords.ax
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201802.cm.CampaignExtensionSetting> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.CampaignExtensionSetting>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.CampaignExtensionSetting>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201802.cm.CampaignExtensionSetting>asList(entries).iterator();
     }

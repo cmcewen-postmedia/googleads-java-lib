@@ -140,7 +140,7 @@ public class LabelPage  implements java.io.Serializable , Iterable<com.google.ap
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201802.Label> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.Label>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.Label>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201802.Label>asList(results).iterator();
     }

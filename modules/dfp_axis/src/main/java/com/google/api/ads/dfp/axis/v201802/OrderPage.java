@@ -140,7 +140,7 @@ public class OrderPage  implements java.io.Serializable , Iterable<com.google.ap
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201802.Order> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.Order>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.Order>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201802.Order>asList(results).iterator();
     }

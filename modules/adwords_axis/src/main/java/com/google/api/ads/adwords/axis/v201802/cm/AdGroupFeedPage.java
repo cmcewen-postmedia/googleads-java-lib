@@ -94,7 +94,7 @@ public class AdGroupFeedPage  extends com.google.api.ads.adwords.axis.v201802.cm
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201802.cm.AdGroupFeed> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.AdGroupFeed>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.AdGroupFeed>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201802.cm.AdGroupFeed>asList(entries).iterator();
     }

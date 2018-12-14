@@ -140,7 +140,7 @@ public class UserPage  implements java.io.Serializable , Iterable<com.google.api
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201802.User> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.User>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.User>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201802.User>asList(results).iterator();
     }

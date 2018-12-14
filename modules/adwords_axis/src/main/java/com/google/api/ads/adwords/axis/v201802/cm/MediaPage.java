@@ -115,7 +115,7 @@ public class MediaPage  implements java.io.Serializable , Iterable<com.google.ap
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201802.cm.Media> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.Media>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.Media>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201802.cm.Media>asList(entries).iterator();
     }

@@ -140,7 +140,7 @@ public class CustomFieldPage  implements java.io.Serializable , Iterable<com.goo
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201802.CustomField> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.CustomField>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.CustomField>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201802.CustomField>asList(results).iterator();
     }

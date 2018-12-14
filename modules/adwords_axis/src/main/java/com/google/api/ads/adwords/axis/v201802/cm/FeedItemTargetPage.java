@@ -92,7 +92,7 @@ public class FeedItemTargetPage  extends com.google.api.ads.adwords.axis.v201802
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201802.cm.FeedItemTarget> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.FeedItemTarget>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.FeedItemTarget>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201802.cm.FeedItemTarget>asList(entries).iterator();
     }

@@ -140,7 +140,7 @@ public class AdRulePage  implements java.io.Serializable , Iterable<com.google.a
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201802.AdRule> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.AdRule>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.AdRule>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201802.AdRule>asList(results).iterator();
     }

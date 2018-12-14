@@ -93,7 +93,7 @@ public class AdGroupCriterionPage  extends com.google.api.ads.adwords.axis.v2018
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201802.cm.AdGroupCriterion> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.AdGroupCriterion>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.AdGroupCriterion>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201802.cm.AdGroupCriterion>asList(entries).iterator();
     }

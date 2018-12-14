@@ -95,7 +95,7 @@ public class CriterionBidLandscapePage  extends com.google.api.ads.adwords.axis.
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201802.cm.CriterionBidLandscape> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.CriterionBidLandscape>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.CriterionBidLandscape>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201802.cm.CriterionBidLandscape>asList(entries).iterator();
     }

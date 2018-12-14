@@ -167,7 +167,7 @@ class ProductPartitionNodeAdapter {
     Preconditions.checkArgument(
         node.isBiddableUnit(), "Node is not a biddable unit. Custom parameters not supported.");
     CustomParameters customParameters = new CustomParameters();
-    List<CustomParameter> parameters = new ArrayList<>();
+    List<CustomParameter> parameters = new ArrayList<CustomParameter>();
     for (Entry<String, String> customParamEntry : node.getCustomParameters().entrySet()) {
       CustomParameter customParameter = new CustomParameter();
       customParameter.setKey(customParamEntry.getKey());

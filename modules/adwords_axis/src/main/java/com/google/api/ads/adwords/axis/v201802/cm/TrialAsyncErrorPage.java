@@ -93,7 +93,7 @@ public class TrialAsyncErrorPage  extends com.google.api.ads.adwords.axis.v20180
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201802.cm.TrialAsyncError> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.TrialAsyncError>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.TrialAsyncError>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201802.cm.TrialAsyncError>asList(entries).iterator();
     }

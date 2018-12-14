@@ -93,7 +93,7 @@ public class TrialPage  extends com.google.api.ads.adwords.axis.v201802.cm.Page 
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201802.cm.Trial> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.Trial>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.Trial>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201802.cm.Trial>asList(entries).iterator();
     }

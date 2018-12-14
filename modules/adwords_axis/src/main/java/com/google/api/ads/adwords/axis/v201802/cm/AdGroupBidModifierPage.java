@@ -93,7 +93,7 @@ public class AdGroupBidModifierPage  extends com.google.api.ads.adwords.axis.v20
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201802.cm.AdGroupBidModifier> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.AdGroupBidModifier>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.AdGroupBidModifier>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201802.cm.AdGroupBidModifier>asList(entries).iterator();
     }

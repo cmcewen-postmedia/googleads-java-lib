@@ -95,7 +95,7 @@ public class CustomerNegativeCriterionPage  extends com.google.api.ads.adwords.a
     @Override
     public java.util.Iterator<com.google.api.ads.adwords.axis.v201802.cm.CustomerNegativeCriterion> iterator() {
         if (entries == null) {
-            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.CustomerNegativeCriterion>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.adwords.axis.v201802.cm.CustomerNegativeCriterion>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.adwords.axis.v201802.cm.CustomerNegativeCriterion>asList(entries).iterator();
     }

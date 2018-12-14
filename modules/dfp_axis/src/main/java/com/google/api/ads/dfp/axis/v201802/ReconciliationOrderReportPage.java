@@ -143,7 +143,7 @@ public class ReconciliationOrderReportPage  implements java.io.Serializable , It
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201802.ReconciliationOrderReport> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.ReconciliationOrderReport>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.ReconciliationOrderReport>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201802.ReconciliationOrderReport>asList(results).iterator();
     }

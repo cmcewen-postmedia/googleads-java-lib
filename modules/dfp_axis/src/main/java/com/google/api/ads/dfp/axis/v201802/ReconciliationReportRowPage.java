@@ -143,7 +143,7 @@ public class ReconciliationReportRowPage  implements java.io.Serializable , Iter
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201802.ReconciliationReportRow> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.ReconciliationReportRow>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.ReconciliationReportRow>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201802.ReconciliationReportRow>asList(results).iterator();
     }

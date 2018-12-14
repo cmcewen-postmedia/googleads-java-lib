@@ -26,7 +26,7 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+import java.nio.charset.Charset;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPHeader;
 import javax.xml.soap.SOAPMessage;
@@ -81,12 +81,13 @@ public class RequestInfoXPathSet {
     if (soapMessage == null || soapMessage.getSOAPPart() == null || transformer == null) {
       return builder;
     }
-    try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    try {
       // Some SOAP frameworks don't include SOAP headers when calling SOAPMessage.writeTo.
       // Use an XML transformer to write the XML content instead.
       transformer.transform(soapMessage.getSOAPPart().getContent(), new StreamResult(outputStream));
-      builder.withPayload(outputStream.toString(StandardCharsets.UTF_8.name()));
-    } catch (TransformerException | SOAPException | IOException e) {
+      builder.withPayload(outputStream.toString());
+    } catch (Exception e) {
       builder.withPayload("Unable to read request content due to exception: " + e);
       libLogger.warn("Unable to read request content due to exception.", e);
     }

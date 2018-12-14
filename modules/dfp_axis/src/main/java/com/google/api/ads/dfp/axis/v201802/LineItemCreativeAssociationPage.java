@@ -146,7 +146,7 @@ public class LineItemCreativeAssociationPage  implements java.io.Serializable , 
     @Override
     public java.util.Iterator<com.google.api.ads.dfp.axis.v201802.LineItemCreativeAssociation> iterator() {
         if (results == null) {
-            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.LineItemCreativeAssociation>emptyIterator();
+            return java.util.Collections.<com.google.api.ads.dfp.axis.v201802.LineItemCreativeAssociation>emptyList().iterator();
         }
         return java.util.Arrays.<com.google.api.ads.dfp.axis.v201802.LineItemCreativeAssociation>asList(results).iterator();
     }

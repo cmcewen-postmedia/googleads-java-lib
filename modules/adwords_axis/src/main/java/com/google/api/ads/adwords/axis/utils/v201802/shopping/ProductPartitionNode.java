@@ -463,7 +463,7 @@ public class ProductPartitionNode {
    */
   private abstract static class NodeState {
 
-    private final Map<String, String> customParams = new HashMap<>();
+    private final Map<String, String> customParams = new HashMap<String, String>();
 
     /**
      * Returns the NodeType for this state.
